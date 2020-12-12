@@ -18,7 +18,8 @@ with open(bank_data_csv) as datafile:
     # Find number of months in total 
     numline = len(list(datafile_reader))
     print ("Total Months:", (numline))
-
+    #makes numline string for printing to document
+    months = str(numline)
 # Calculate net total amount of "Profit/Losses"
 with open(bank_data_csv) as datafile:
     datafile_reader = csv.reader(datafile, delimiter=",")
@@ -65,5 +66,20 @@ with open(bank_data_csv) as datafile:
     print ("Greatest Increase in Profits:", (date_max_change_revenue), "$"+str(max_change_revenue))
     print ("Greatest Decrease in Profits:", (date_min_change_revenue), "$"+str(min_change_revenue))
 
+#export to text file
+#define output path
+output_file = os.path.join("analysis.doc")
+
+#write to text file
+with open(output_file, "w", newline='') as datafile:
+    writer = csv.writer(datafile)
+
+    writer.writerow("Financial Analysis")
+    writer.writerow("----------------------------------------------")
+    writer.writerows(["Total Months:", (months)])
+    writer.writerows(["Total: $"+str((total))])
+    writer.writerows(["Average Change: $"+str(average_change_revenue)])
+    writer.writerows(["Greatest Increase in Profits:", (date_max_change_revenue), "$"+str(max_change_revenue)])
+    writer.writerows(["Greatest Decrease in Profits:", (date_min_change_revenue), "$"+str(min_change_revenue)])
 
 
