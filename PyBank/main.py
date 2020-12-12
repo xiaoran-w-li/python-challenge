@@ -68,18 +68,16 @@ with open(bank_data_csv) as datafile:
 
 #export to text file
 #define output path
-output_file = os.path.join("analysis.doc")
+output_file = os.path.join("analysis.txt")
 
 #write to text file
 with open(output_file, "w", newline='') as datafile:
-    writer = csv.writer(datafile)
-
-    writer.writerow("Financial Analysis")
-    writer.writerow("----------------------------------------------")
-    writer.writerows(["Total Months:", (months)])
-    writer.writerows(["Total: $"+str((total))])
-    writer.writerows(["Average Change: $"+str(average_change_revenue)])
-    writer.writerows(["Greatest Increase in Profits:", (date_max_change_revenue), "$"+str(max_change_revenue)])
-    writer.writerows(["Greatest Decrease in Profits:", (date_min_change_revenue), "$"+str(min_change_revenue)])
+    datafile.write("Financial Analysis\n")
+    datafile.write("----------------------------------------------\n")
+    datafile.write(f'Total Months: {months}\n')
+    datafile.write(f'Total: $ {total}\n')
+    datafile.write(f'Average Change: ${average_change_revenue}\n')
+    datafile.write(f'Greatest Increase in Profits: {date_max_change_revenue} $ {max_change_revenue}\n')
+    datafile.write(f'Greatest Decrease in Profits: {date_min_change_revenue} $ {min_change_revenue}\n')
 
 
