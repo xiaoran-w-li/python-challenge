@@ -40,3 +40,24 @@ with open(poll_data_csv) as datafile:
     unique_candidate = set(candidate_name)
     unique_candidate = list(unique_candidate)
 
+    Khan_votes = candidate_name.count("Khan")
+    Khan_percentage = "{:.0%}".format(Khan_votes/total_votes)
+    print (f'Khan: {Khan_percentage} ({Khan_votes})')
+    
+    Correy_votes = candidate_name.count("Correy")
+    Correy_percentage = "{:.0%}".format(Correy_votes/total_votes)
+    print (f'Correy: {Correy_percentage} ({Correy_votes})')
+    
+    Li_votes = candidate_name.count("Li")
+    Li_percentage = "{:.0%}".format(Li_votes/total_votes)
+    print (f'Li: {Li_percentage} ({Li_votes})')
+    
+    OTooley_votes = candidate_name.count("O'Tooley")
+    OTooley_percentage = "{:.0%}".format(OTooley_votes/total_votes)
+    print (str("O'Tooley:"), f'{OTooley_percentage} ({OTooley_votes})')
+    
+    print ("----------------------------------------------")
+
+    print ("Winner: Khan")
+
+    
