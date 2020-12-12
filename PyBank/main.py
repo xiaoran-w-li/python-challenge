@@ -58,13 +58,12 @@ with open(bank_data_csv) as datafile:
 
         min_change_revenue = min(change_revenue)
 
-        date_max_change_revenue = str(date[change_revenue.index(max(change_revenue))])
-        date_min_change_revenue = str(date[change_revenue.index(min(change_revenue))])
+        date_max_change_revenue = str(date[change_revenue.index(max(change_revenue))+1])
+        date_min_change_revenue = str(date[change_revenue.index(min(change_revenue))+1])
 
     print ("Average Change: $"+str(average_change_revenue))
     print ("Greatest Increase in Profits:", (date_max_change_revenue), "$"+str(max_change_revenue))
     print ("Greatest Decrease in Profits:", (date_min_change_revenue), "$"+str(min_change_revenue))
-    print (date_max_change_revenue)
-    print (date_min_change_revenue)
+
 
 
