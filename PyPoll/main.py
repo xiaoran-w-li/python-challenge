@@ -40,6 +40,8 @@ with open(poll_data_csv) as datafile:
     unique_candidate = set(candidate_name)
     unique_candidate = list(unique_candidate)
 
+
+    # find and print percentage of votes and number of votes from each candidate
     Khan_votes = candidate_name.count("Khan")
     Khan_percentage = "{:.0%}".format(Khan_votes/total_votes)
     print (f'Khan: {Khan_percentage} ({Khan_votes})')
@@ -60,4 +62,20 @@ with open(poll_data_csv) as datafile:
 
     print ("Winner: Khan")
 
-    
+# write everything to text file
+#define output path
+output_file = os.path.join("analysis.txt")
+
+
+#write to text file
+with open(output_file, "w", newline='') as datafile:
+    datafile.write("Election Results\n")
+    datafile.write("----------------------------------------------\n")
+    datafile.write(f'Total Votes: {total_votes}\n')
+    datafile.write("----------------------------------------------\n")
+    datafile.write(f'Khan: {Khan_percentage} ({Khan_votes})\n')
+    datafile.write(f'Correy: {Correy_percentage} ({Correy_votes})\n')
+    datafile.write(f'Li: {Li_percentage} ({Li_votes})\n')
+    datafile.write(str("O'Tooley:")+ f'{OTooley_percentage} ({OTooley_votes})\n')
+    datafile.write("----------------------------------------------\n")
+    datafile.write("Winner: Khan")
